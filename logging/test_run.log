@@ -1,0 +1,77 @@
+2026-08-05T07:38:25+05:30 [info]: Login page is displayed
+2026-08-05T07:38:25+05:30 [info]: Entered username: standard_user
+2026-08-05T07:38:25+05:30 [info]: Entered password
+2026-08-05T07:38:25+05:30 [info]: Clicked login button
+2026-08-05T07:38:25+05:30 [info]: Successfully logged in and page loaded
+2026-08-05T07:38:25+05:30 [info]: Standard user login successful
+2026-08-05T07:39:21+05:30 [info]: Login page is displayed
+2026-08-05T07:39:21+05:30 [info]: Entered username: standard_user
+2026-08-05T07:39:21+05:30 [info]: Entered password
+2026-08-05T07:39:21+05:30 [info]: Clicked login button
+2026-08-05T07:39:49+05:30 [error]: Login failed: Error: page.waitForURL: Test timeout of 30000ms exceeded.
+=========================== logs ===========================
+waiting for navigation until "load"
+============================================================
+2026-08-05T07:48:45+05:30 [info]: Login page is displayed
+2026-08-05T07:48:45+05:30 [info]: Entered username: standard_user
+2026-08-05T07:48:45+05:30 [info]: Entered password
+2026-08-05T07:48:46+05:30 [info]: Clicked login button
+2026-08-05T07:48:46+05:30 [info]: Successfully logged in and page loaded
+2026-08-05T07:48:46+05:30 [info]: Standard user login successful
+2026-08-05T07:49:40+05:30 [info]: Login page is displayed
+2026-08-05T07:49:41+05:30 [info]: Entered username: standard_user
+2026-08-05T07:49:41+05:30 [info]: Entered password
+2026-08-05T07:49:41+05:30 [info]: Error message verified: Epic sadface: Username and password do not match any user in this service
+2026-08-05T07:49:41+05:30 [info]: Clicked login button
+2026-08-05T07:49:41+05:30 [info]: Successfully logged in and page loaded
+2026-08-05T07:49:41+05:30 [info]: Standard user login successful
+2026-08-05T07:49:41+05:30 [info]: Invalid username error validation
+2026-08-05T07:51:49+05:30 [info]: Login page is displayed
+2026-08-05T07:51:49+05:30 [info]: Entered username: standard_user
+2026-08-05T07:51:50+05:30 [info]: Entered password
+2026-08-05T07:51:50+05:30 [info]: Error message verified: Epic sadface: Username and password do not match any user in this service
+2026-08-05T07:51:50+05:30 [info]: Invalid username error validation
+2026-08-05T07:51:50+05:30 [info]: Clicked login button
+2026-08-05T07:51:50+05:30 [info]: Successfully logged in and page loaded
+2026-08-05T07:51:50+05:30 [info]: Standard user login successful
+2026-08-05T07:51:52+05:30 [info]: Error message verified: Epic sadface: Username and password do not match any user in this service
+2026-08-05T07:51:52+05:30 [info]: Invalid password error validation
+2026-08-05T08:02:30+05:30 [info]: Login page is displayed
+2026-08-05T08:02:31+05:30 [info]: Entered username: standard_user
+2026-08-05T08:02:31+05:30 [info]: Entered password
+2026-08-05T08:02:31+05:30 [info]: Error message verified: Epic sadface: Username and password do not match any user in this service
+2026-08-05T08:02:31+05:30 [info]: Invalid username error validation
+2026-08-05T08:02:32+05:30 [info]: Clicked login button
+2026-08-05T08:02:32+05:30 [info]: Successfully logged in and page loaded
+2026-08-05T08:02:32+05:30 [info]: Standard user login successful
+2026-08-05T08:02:33+05:30 [info]: Error message verified: Epic sadface: Password is required
+2026-08-05T08:02:33+05:30 [info]: Invalid password error validation
+2026-08-05T08:12:10+05:30 [info]: Login page is displayed
+2026-08-05T08:12:10+05:30 [info]: Entered username: standard_user
+2026-08-05T08:12:11+05:30 [info]: Entered password
+2026-08-05T08:12:11+05:30 [info]: Error message verified: Epic sadface: Username and password do not match any user in this service
+2026-08-05T08:12:11+05:30 [info]: Invalid username error validation
+2026-08-05T08:12:11+05:30 [info]: Clicked login button
+2026-08-05T08:12:11+05:30 [info]: Successfully logged in and page loaded
+2026-08-05T08:12:11+05:30 [info]: Standard user login successful
+2026-08-05T08:12:14+05:30 [info]: Entered username: performance_glitch_user
+2026-08-05T08:12:14+05:30 [info]: Entered password
+2026-08-05T08:12:14+05:30 [info]: Error message verified: Epic sadface: Password is required
+2026-08-05T08:12:14+05:30 [info]: Invalid password error validation
+2026-08-05T08:12:19+05:30 [info]: Clicked login button
+2026-08-05T08:12:19+05:30 [info]: Successfully logged in and page loaded
+2026-08-05T08:12:19+05:30 [info]: Invalid password error validation
+2026-08-05T08:12:47+05:30 [info]: Login page is displayed
+2026-08-05T08:12:47+05:30 [info]: Entered username: standard_user
+2026-08-05T08:12:47+05:30 [info]: Entered password
+2026-08-05T08:12:48+05:30 [info]: Clicked login button
+2026-08-05T08:12:48+05:30 [info]: Successfully logged in and page loaded
+2026-08-05T08:12:48+05:30 [info]: Standard user login successful
+2026-08-05T08:12:48+05:30 [info]: Error message verified: Epic sadface: Username and password do not match any user in this service
+2026-08-05T08:12:48+05:30 [info]: Invalid username error validation
+2026-08-05T08:12:50+05:30 [info]: Entered username: performance_glitch_user
+2026-08-05T08:12:50+05:30 [info]: Error message verified: Epic sadface: Password is required
+2026-08-05T08:12:50+05:30 [info]: Invalid password error validation
+2026-08-05T08:12:50+05:30 [info]: Entered password
+2026-08-05T08:12:56+05:30 [info]: Clicked login button
+2026-08-05T08:12:56+05:30 [info]: Successfully logged in and page loaded

@@ -1,0 +1,20 @@
+{
+  "name": "playwright-project-demoone-march",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.58.0",
+    "@types/node": "^26.1.2",
+    "playwright": "^1.40.0"
+  },
+  "dependencies": {
+    "moment-timezone": "^0.6.3",
+    "winston": "^3.19.0"
+  }
+}
