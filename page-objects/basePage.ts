@@ -54,7 +54,13 @@ export class BasePage {
         await this.resetAppLink.click();
      }
  
- 
+     async goToCart(){
+        try{
+                await this.page.goto('https://www.saucedemo.com/cart.html',{waitUntil : "domcontentloaded"});
+        }catch(error){
+            throw error;
+        }
+    }
 
     async getProductsPageName(): Promise<string | null>{
         return await this.pageTitle.textContent();

@@ -9,9 +9,8 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "@playwright/test": "^1.58.0",
-    "@types/node": "^26.1.2",
-    "playwright": "^1.40.0"
+    "@playwright/test": "^1.48.0",
+    "@types/node": "^26.1.2"
   },
   "dependencies": {
     "moment-timezone": "^0.6.3",
