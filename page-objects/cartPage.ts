@@ -1,5 +1,6 @@
 import { expect, Locator, Page } from "@playwright/test";
 import { BasePage } from "./basePage";
+import logger from "../utils/LoggerUtils";
 
 export class CartPage extends BasePage {
 
@@ -53,6 +54,28 @@ export class CartPage extends BasePage {
         }
         catch {
             return false;
+        }
+    }
+
+
+    async itemsInCartPage(productName: string): Promise<string | null> {
+        try {
+            // finding cart item by Name 
+            const cartItem = this.cartItems.filter({
+                has: this.page.getByTestId('inventory-item-name').filter({ hasText: productName })
+            });
+
+            const isVisible = await cartItem.first().isVisible();
+            if(isVisible){
+                const itemName = await cartItem.locator('.inventory_item_name').textContent();
+                logger.info(`Found ${itemName} item in the cart`);
+                return itemName?.trim() || null;
+            }
+            return null;
+        }
+        catch(error) {
+            logger.info(`Item not found in the cart page : ${productName}`);
+            return null;
         }
     }
 
