@@ -10,6 +10,7 @@ export class ProductListPage extends BasePage {
     readonly inventoryItems: Locator;
     readonly sortContainer: Locator;
     readonly inventoryName : Locator;
+    readonly inventory : Locator;
 
     constructor(page: Page) {
         super(page);
@@ -18,6 +19,7 @@ export class ProductListPage extends BasePage {
         this.inventoryItems = this.page.locator('[data-test="inventory-item"]');
         this.sortContainer = this.page.locator('select.product_sort_container');
         this.inventoryName = this.page.locator('inventory_item_name');
+        this.inventory = this.page.locator('.inventory_item');
     }
 
 

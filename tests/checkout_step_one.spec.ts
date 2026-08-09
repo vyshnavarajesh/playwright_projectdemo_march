@@ -7,12 +7,14 @@ import { PRODUCTS } from '../testData/products'
 
 
 test.describe('Checkout Page validation ', () => {
-
+    // Declare shared page object variables at the describe scope
     let prodListPageObj: any;
     let cartListPageObj: any;
     let checkOutPageObj: any;
 
     test.beforeEach(async ({ page, authenticatedPage: pom }) => {
+
+        //Initialize the page objects once for every test
         prodListPageObj = await pom.listPage();
         cartListPageObj = await pom.cartPage();
         checkOutPageObj = await pom.checkOutPage();
@@ -42,7 +44,6 @@ test.describe('Checkout Page validation ', () => {
             // Proceed to Checkout Page
             await cartListPageObj.proceedToCheckout();
             await expect(page).toHaveURL(/checkout-step-one/);
-
         });
 
         await test.step('verify all the elements checkout step one form is displayed ', async () => {
@@ -80,7 +81,10 @@ test.describe('Checkout Page validation ', () => {
 
         await test.step('verify all the elements checkout step one form is displayed', async () => {
             // Verify all the elements checkout step one form is displayed in test case one is repleaced with one function
-            await expect(await checkOutPageObj.checkOutElementsAreVisible()).toBe(true);
+            const fields = checkOutPageObj.getFormFields();
+            for(const field of fields){
+                await expect(field).toBeVisible();
+            }
         });
 
         await test.step('fill lastName & firstName code, keep postcode empty for error validation', async () => {
@@ -96,7 +100,7 @@ test.describe('Checkout Page validation ', () => {
         });
     });
 
-    test.only('Initiate checkout from cart page & fill only firstName & postalCode', async ({ page}, testInfo) => {
+    test.only('Initiate checkout from cart page & fill only firstName & postalCode', async ({ page }, testInfo) => {
 
         await test.step('Navigate to cart & checkout', async () => {
 
@@ -111,7 +115,10 @@ test.describe('Checkout Page validation ', () => {
 
         await test.step('verify all the elements checkout step one form is displayed', async () => {
             // Verify all the elements checkout step one form is displayed in test case one is repleaced with one function
-            await expect(await checkOutPageObj.checkOutElementsAreVisible()).toBe(true);
+            const fields = checkOutPageObj.getFormFields();
+            for(const field of fields){
+                await expect(field).toBeVisible();
+            }
         });
 
         await test.step('fill firstName & postal code, keep lastName empty for error validation', async () => {
@@ -127,7 +134,7 @@ test.describe('Checkout Page validation ', () => {
     });
 
 
-    test.only('Initiate checkout from cart page & fill all fields with empty data', async ({ page}, testInfo) => {
+    test.only('Initiate checkout from cart page & fill all fields with empty data', async ({ page }, testInfo) => {
 
         await test.step('Navigate to cart & checkout', async () => {
 
@@ -142,7 +149,10 @@ test.describe('Checkout Page validation ', () => {
 
         await test.step('verify all the elements checkout step one form is displayed', async () => {
             // Verify all the elements checkout step one form is displayed in test case one is repleaced with one function
-            await expect(await checkOutPageObj.checkOutElementsAreVisible()).toBe(true);
+            const fields = checkOutPageObj.getFormFields();
+            for(const field of fields){
+                await expect(field).toBeVisible();
+            }
         });
 
         await test.step('fill firstName & postal code, keep lastName empty for error validation', async () => {

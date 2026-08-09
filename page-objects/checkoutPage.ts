@@ -75,16 +75,8 @@ export class CheckoutPage extends BasePage {
         }
     }
 
-    async checkOutElementsAreVisible(): Promise<boolean> {
-
-        try {
-            if (await this.firstName.isVisible() && await this.lastName.isVisible() && await this.postalCode.isVisible())
-                return true;
-            else
-                return false;
-        } catch {
-            return false;
-        }
+    getFormFields(): Locator[] {
+        return [this.firstName, this.lastName, this.postalCode, this.cancelButton, this.continueCheckoutButton];
     }
 
     /*

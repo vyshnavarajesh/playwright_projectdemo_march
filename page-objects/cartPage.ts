@@ -37,11 +37,15 @@ export class CartPage extends BasePage {
         await this.page.waitForURL(/inventory/);
     }
 
+    /*
     async getCartItemCount(): Promise<number> {
        const count = await this.cartItems.count();
        return count;
     }
+    */
 
+
+    //Validates products in cart & returns boolean
     async isProductInCart(productName: string): Promise<boolean> {
         try {
             // finding cart item by Name 
@@ -57,7 +61,7 @@ export class CartPage extends BasePage {
         }
     }
 
-
+    //Validates products in the cart & returns string or null
     async itemsInCartPage(productName: string): Promise<string | null> {
         try {
             // finding cart item by Name 

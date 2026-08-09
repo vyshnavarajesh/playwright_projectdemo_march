@@ -42,7 +42,6 @@ test.describe('Inventory & product details validation', () => {
         logger.info('product list verification successful')
     });
 
-
     test('view Product info for one product in inventory page', async ({ page, authenticatedPage: pom }) => {
 
         await test.step('verify Sauce Labs Bike Light info', async () => {
@@ -92,16 +91,16 @@ test.describe('Inventory & product details validation', () => {
         logger.info('product list sort Z to A successful')
     });
 
-    test('sort product details By (High to Low)', async ({ page, authenticatedPage: pom }) => {
-
+    test('sort product details By (High to Low) @sanity', async ({ page, authenticatedPage: pom }) => {
+        const prodListPageObj = await pom.listPage();
         await test.step('select High To Low Dropdown ', async () => {
-            const prodListPageObj = await pom.listPage();
+           
             await prodListPageObj.sortByPriceHighLow();
         })
 
         await test.step('verify product are sorted by high to low', async () => {
             //const productNames = await prodListPageObj.inventoryName.allTextContents();
-            const productItems = await page.locator('.inventory_item').all();
+            const productItems = await prodListPageObj.inventory.all();
             const prices: number[] = [];
 
             for (const item of productItems) {
@@ -154,7 +153,6 @@ test.describe('Inventory & product details validation', () => {
         logger.info('product list sort high to Low successful')
     });
 
-
     test('Adding single product to cart', async ({ page, authenticatedPage: pom }) => {
 
         await test.step('Add products to cart ', async () => {
@@ -189,7 +187,6 @@ test.describe('Inventory & product details validation', () => {
         });
     });
 
-
     test('Adding multiple products to cart', async ({ page, authenticatedPage: pom }) => {
 
         await test.step('Add products to cart ', async () => {
@@ -210,7 +207,7 @@ test.describe('Inventory & product details validation', () => {
         });
     });
 
-    test.only('Adding multiple products to cart & validating count in the cart Page', async ({ page, authenticatedPage: pom },testInfo) => {
+    test('Adding multiple products to cart & validating count in the cart Page', async ({ page, authenticatedPage: pom },testInfo) => {
 
         await test.step('Add products to cart ', async () => {
             const prodListPageObj = await pom.listPage();
