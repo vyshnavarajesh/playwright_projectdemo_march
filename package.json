@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+      "test" : "npx playwright test",
+      "test:sanity" :"npx playwright test --project=firefox --grep @sanity",
+      "test:sanity:headed" :"npx playwright test --project=firefox --grep @sanity --headed",
+      "test:regression" :"npx playwright test --project=firefox --grep @regression",
+      "test:flipkart" :"npx playwright test/flipkart --project=firefox --grep @regression"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

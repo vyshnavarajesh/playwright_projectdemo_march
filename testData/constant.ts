@@ -1,4 +1,3 @@
-
 import { EnvironmentConfig } from '../utils/EnvironmentConfig';
 
 export const stg_url = EnvironmentConfig.getApplicationUrl();
@@ -35,3 +34,15 @@ export const checkout_postalCode = "123456"
 export const checkout_firstName_errorMessage = 'Error: First Name is required';
 export const checkout_lastName_errorMessage = "Error: Last Name is required";
 export const checkout_PostalCode_errorMessage = 'Error: Postal Code is required';
+
+export interface CheckoutFormData{
+  firstName : string;
+  lastName : string;
+  postalCode: string;
+}
+
+export const VALID_CHECKOUT_DATA : CheckoutFormData = {
+  firstName: 'testUserOne',
+  lastName: 'testUserLastName',
+  postalCode:'12345'
+}

@@ -34,7 +34,7 @@ test.describe('Checkout Page validation ', () => {
     })
 
 
-    test('Initiate checkout from cart page & fill only lastName & postalCode for error vaidation', async ({ page }, testInfo) => {
+    test('Initiate checkout from cart page & fill only lastName & postalCode for error vaidation @regression', async ({ page }, testInfo) => {
         // Navigate to CartPage
         await test.step('Navigate to cart & checkout', async () => {
 
@@ -65,7 +65,7 @@ test.describe('Checkout Page validation ', () => {
         });
     });
 
-    test('Initiate checkout from cart page & fill only firstName & lastName for error validation', async ({ page }, testInfo) => {
+    test('Initiate checkout from cart page & fill only firstName & lastName for error validation @regression', async ({ page }, testInfo) => {
 
         // Navigate to CartPage
         await test.step('Navigate to cart & checkout', async () => {
@@ -100,7 +100,7 @@ test.describe('Checkout Page validation ', () => {
         });
     });
 
-    test.only('Initiate checkout from cart page & fill only firstName & postalCode', async ({ page }, testInfo) => {
+    test('Initiate checkout from cart page & fill only firstName & postalCode @regression', async ({ page }, testInfo) => {
 
         await test.step('Navigate to cart & checkout', async () => {
 
@@ -133,8 +133,7 @@ test.describe('Checkout Page validation ', () => {
         });
     });
 
-
-    test.only('Initiate checkout from cart page & fill all fields with empty data', async ({ page }, testInfo) => {
+    test('Initiate checkout from cart page & fill all fields with empty data @regression', async ({ page }, testInfo) => {
 
         await test.step('Navigate to cart & checkout', async () => {
 
@@ -163,6 +162,37 @@ test.describe('Checkout Page validation ', () => {
 
             const errorMessage = await checkOutPageObj.getErrorText();
             expect(errorMessage).toBe(constants.checkout_firstName_errorMessage);
+            await page.screenshot({ path: `./snapshots/` + Date.now() + `- ${testInfo.title}.png` })
+
+        });
+    });
+
+    test('Initiate checkout from cart page & fill all fields @sanity', async ({ page }, testInfo) => {
+
+        await test.step('Navigate to cart & checkout', async () => {
+
+            await prodListPageObj.clickOnCart();
+            const cartPageName = await cartListPageObj.getProductsPageName();
+            await expect(cartPageName).toBe('Your Cart');
+            // Proceed to Checkout Page
+            await cartListPageObj.proceedToCheckout();
+            await expect(page).toHaveURL(/checkout-step-one/);
+
+        });
+
+        await test.step('verify all the elements checkout step one form is displayed', async () => {
+            // Verify all the elements checkout step one form is displayed in test case one is repleaced with one function
+            const fields = checkOutPageObj.getFormFields();
+            for(const field of fields){
+                await expect(field).toBeVisible();
+            }
+        });
+
+        await test.step('fill all the fields to proceed to next checkout step two', async () => {
+            await checkOutPageObj.fillCheckoutFormWithDefaultData();
+            await checkOutPageObj.continueToCheckout();
+
+            await expect(page).toHaveURL(/checkout-step-two/);
             await page.screenshot({ path: `./snapshots/` + Date.now() + `- ${testInfo.title}.png` })
 
         });

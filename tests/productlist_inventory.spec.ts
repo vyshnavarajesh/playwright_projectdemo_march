@@ -12,7 +12,7 @@ test.beforeEach(async ({ page, authenticatedPage: pom }) => {
 
 test.describe('Inventory & product details validation', () => {
 
-    test('view Product list on inventory page', async ({ page, authenticatedPage: pom }) => {
+    test('view Product list on inventory page @sanity', async ({ page, authenticatedPage: pom }) => {
 
         await test.step('verify product list page with all 6 products', async () => {
             const prodListPageObj = await pom.listPage();
@@ -42,7 +42,7 @@ test.describe('Inventory & product details validation', () => {
         logger.info('product list verification successful')
     });
 
-    test('view Product info for one product in inventory page', async ({ page, authenticatedPage: pom }) => {
+    test('view Product info for one product in inventory page @sanity', async ({ page, authenticatedPage: pom }) => {
 
         await test.step('verify Sauce Labs Bike Light info', async () => {
             const prodListPageObj = await pom.listPage();
@@ -56,7 +56,7 @@ test.describe('Inventory & product details validation', () => {
         logger.info('product info verification successful')
     });
 
-    test('sort product details By (A to Z)', async ({ page, authenticatedPage: pom }) => {
+    test('sort product details By (A to Z) @regression', async ({ page, authenticatedPage: pom }) => {
 
         await test.step('verify product are sorted alphabetically ', async () => {
             const prodListPageObj = await pom.listPage();
@@ -72,7 +72,7 @@ test.describe('Inventory & product details validation', () => {
         logger.info('product sort A to Z  verification successful')
     });
 
-    test('sort product details By (Z to A)', async ({ page, authenticatedPage: pom }) => {
+    test('sort product details By (Z to A) @regression', async ({ page, authenticatedPage: pom }) => {
 
         await test.step('verify product are sorted alphabetically ', async () => {
             const prodListPageObj = await pom.listPage();
@@ -91,7 +91,7 @@ test.describe('Inventory & product details validation', () => {
         logger.info('product list sort Z to A successful')
     });
 
-    test('sort product details By (High to Low) @sanity', async ({ page, authenticatedPage: pom }) => {
+    test('sort product details By (High to Low) @regression', async ({ page, authenticatedPage: pom }) => {
         const prodListPageObj = await pom.listPage();
         await test.step('select High To Low Dropdown ', async () => {
            
@@ -122,7 +122,7 @@ test.describe('Inventory & product details validation', () => {
         logger.info('product list sort high to Low successful')
     });
 
-    test('sort product details By (Low to High)', async ({ page, authenticatedPage: pom }) => {
+    test('sort product details By (Low to High) @sanity', async ({ page, authenticatedPage: pom }) => {
 
         await test.step('select Low To High Dropdown ', async () => {
             const prodListPageObj = await pom.listPage();
@@ -153,7 +153,7 @@ test.describe('Inventory & product details validation', () => {
         logger.info('product list sort high to Low successful')
     });
 
-    test('Adding single product to cart', async ({ page, authenticatedPage: pom }) => {
+    test('Adding single product to cart @sanity', async ({ page, authenticatedPage: pom }) => {
 
         await test.step('Add products to cart ', async () => {
             const prodListPageObj = await pom.listPage();
@@ -166,7 +166,7 @@ test.describe('Inventory & product details validation', () => {
         });
     });
 
-    test('Adding & removing single product from cart', async ({ page, authenticatedPage: pom }) => {
+    test('Adding & removing single product from cart @regression', async ({ page, authenticatedPage: pom }) => {
 
         await test.step('Adding multiple products to cart ', async () => {
 
@@ -187,7 +187,7 @@ test.describe('Inventory & product details validation', () => {
         });
     });
 
-    test('Adding multiple products to cart', async ({ page, authenticatedPage: pom }) => {
+    test('Adding multiple products to cart @sanity', async ({ page, authenticatedPage: pom }) => {
 
         await test.step('Add products to cart ', async () => {
             const prodListPageObj = await pom.listPage();
@@ -207,7 +207,7 @@ test.describe('Inventory & product details validation', () => {
         });
     });
 
-    test('Adding multiple products to cart & validating count in the cart Page', async ({ page, authenticatedPage: pom },testInfo) => {
+    test('Adding multiple products to cart & validating count in the cart Page @regression', async ({ page, authenticatedPage: pom },testInfo) => {
 
         await test.step('Add products to cart ', async () => {
             const prodListPageObj = await pom.listPage();
