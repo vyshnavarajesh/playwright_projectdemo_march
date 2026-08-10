@@ -9,7 +9,7 @@
       "test:sanity:headed" :"npx playwright test --project=firefox --grep @sanity --headed",
       "test:regression" :"npx playwright test --project=firefox --grep @regression",
       "test:flipkart" :"npx playwright test/flipkart --project=firefox --grep @regression",
-      "test:all:saucedemo" :"npx playwright test --project=firefox",
+      "test:all:saucedemo" :"npx playwright test --project=firefox"
     
   },
   "keywords": [],
