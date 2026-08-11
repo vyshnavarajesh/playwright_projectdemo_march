@@ -2,6 +2,7 @@ import { Locator, Page,expect } from "@playwright/test";
 import { BasePage } from "./basePage";
 import logger from "../utils/LoggerUtils";
 import { CheckoutFormData,VALID_CHECKOUT_DATA } from "../testData/constant";
+import {WaitStrategies} from "../utils/PlaywrightWaitHelper";
 
 export class CheckoutPage extends BasePage {
 
@@ -22,6 +23,8 @@ export class CheckoutPage extends BasePage {
     readonly totalLabel: Locator;
     readonly thankYouMessage: Locator;
     readonly finishButton: Locator;
+    readonly pdfBtn : Locator;
+    readonly backHomeButton : Locator;
 
 
 
@@ -45,12 +48,42 @@ export class CheckoutPage extends BasePage {
         this.totalLabel = this.page.locator('[data-test="total-label"]');
         this.thankYouMessage = this.page.locator('h2:has-text("Thank you")');
         this.finishButton = this.page.locator('[data-test="finish"]');
+        this.pdfBtn = this.page.getByTestId('generate-pdf-order');
+        //this.backHomeButton = this.page.locator('#back-to-products');
 
     }
+
+    getBackToProductsButton(): Locator {
+        return  this.page.locator('[data-test="back-to-products"]')
+                        .or(this.page.locator('button[id="back-to-products"]'))
+                        .or(this.page.locator('#back-to-products'))
+    }
+
+    async clickBackToProducts(){
+            try{
+
+                const CurrentUrl = this.page.url();
+                if(!CurrentUrl.includes('checkout-complete')){
+                    throw new Error(`Expected to be on completion, but URL is : ${CurrentUrl}`);
+                }
+
+                const backButton = this.getBackToProductsButton();
+
+                await WaitStrategies.clickElement(backButton,'Back to Products button',10000);
+
+                await WaitStrategies.waitForURL(this.page, /inventory.html/,10000);
+
+            }catch(error){
+                logger.error(`Failed to navigate back to products ${error}`);
+                throw error;
+            }
+    }
+
 
     async getCheckoutPageTitle(): Promise<string | null> {
         return await this.pageTitle.textContent();
     }
+
 
     async enterFirstNameInCheckout(fname: string) {
         await this.firstName.fill(fname)
