@@ -123,6 +123,41 @@ export class CartPage extends BasePage {
        }
     }
 
+    getCartProductItemByName(productName: string): Locator {
+        return this.page.locator('.cart_item').filter({
+            has: this.page.locator('.inventory_item_name').filter({ hasText: productName })
+        });
+    }
+
+    async getCartProductName(productName: string): Promise<string> {
+        const item = this.getCartProductItemByName(productName);
+        const name = await item.locator('.inventory_item_name').textContent();
+        return name?.trim() || '';
+    }
+
+
+    async getCartProductPrice(productName: string): Promise<string> {
+        const item = this.getCartProductItemByName(productName);
+        const price = await item.locator('.inventory_item_price').textContent();
+        return price?.trim() || '';
+    }
+
+
+    async getCartProductDescription(productName: string): Promise<string> {
+        const item = this.getCartProductItemByName(productName);
+        const description = await item.locator('.inventory_item_desc').textContent();
+        return description?.trim() || '';
+    }
+
+
+    async getcartProductDetails(productName: string): Promise<{ name: string, price: string, description: string }> {
+        return {
+            name: await this.getCartProductName(productName),
+            price: await this.getCartProductPrice(productName),
+            description: await this.getCartProductDescription(productName)
+        };
+    }
+
   
 
 
