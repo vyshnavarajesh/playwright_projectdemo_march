@@ -73,7 +73,7 @@ test.describe('Order complete Page validation ', () => {
     });
 
 
-    test.only('Complete checkout & verify cart reset @sanity', async ({ page }, testInfo) => {
+    test('Complete checkout & verify cart reset @sanity', async ({ page }, testInfo) => {
 
         await test.step('Verify cart items count in step two', async () => {
 
